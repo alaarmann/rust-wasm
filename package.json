@@ -1,0 +1,15 @@
+{
+  "name": "rust-wasm",
+  "version": "0.1.0",
+  "description": "Rust compiled to wasm",
+  "main": "rustwasm_gc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cargo-build": "cargo build --target wasm32-unknown-unknown --release",
+    "wasm-gc": "wasm-gc target/wasm32-unknown-unknown/release/rustwasm.wasm -o target/wasm32-unknown-unknown/release/rustwasm_gc.wasm",
+    "wasm-bindgen": "wasm-bindgen target/wasm32-unknown-unknown/release/rustwasm_gc.wasm --out-dir .",
+    "build": "npm run cargo-build && npm run wasm-gc && npm run wasm-bindgen"
+  },
+  "author": "alaarmann@gmx.net",
+  "license": "MIT"
+}
