@@ -16,7 +16,7 @@ pub extern "C" fn create_sha512(a: &str) -> String {
 
     let mut result = String::new();
     for element in output.iter() {
-        result.push_str(&format!("{:x}", element));
+        result.push_str(&format!("{:02x}", element));
     }
     return result;
 }
